@@ -1,5 +1,8 @@
 package ro.ase.ctsseminar2;
 
+import ro.ase.ctsseminar2.exceptii.IllegalTransferException;
+import ro.ase.ctsseminar2.exceptii.InsufficientFundsException;
+
 public class CurrentAccount extends BankAccount{
 
 	
@@ -23,14 +26,26 @@ public class CurrentAccount extends BankAccount{
 	}
 
 	@Override
-	public void withdraw(double amount) {
+	public void withdraw(double amount) throws InsufficientFundsException {
 		// TODO Auto-generated method stub
+		if(this.balance>=amount) {
+		this.balance-=amount;
+		}
+		else {
+			throw new InsufficientFundsException("fonduri insuficiente");
+		}
 		
 	}
 
 	@Override
-	public void transfer(double amount, Account destination) {
-		// TODO Auto-generated method stub
+	public void transfer(double amount, Account destination) throws IllegalTransferException, InsufficientFundsException {
+		if(((BankAccount)destination).iban.equals(this.iban)) {
+			throw new IllegalTransferException("conturile coincid");
+		}
+		else {
+			this.withdraw(amount);
+			destination.deposit(amount);
+		}
 		
 	}
 	
