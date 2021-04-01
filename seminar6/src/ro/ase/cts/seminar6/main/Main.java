@@ -1,14 +1,12 @@
-package ro.ase.cts.seminar5.main;
+package ro.ase.cts.seminar6.main;
 
 import java.util.Scanner;
 
-import ro.ase.cts.seminar5.Factory.AbstractProductFactory;
-import ro.ase.cts.seminar5.Factory.OfficeProduct;
-import ro.ase.cts.seminar5.Factory.Product;
-import ro.ase.cts.seminar5.Factory.ProductFactory;
-import ro.ase.cts.seminar5.Factory.TechProduct;
-import ro.ase.cts.seminar5.Factory.TechProductFactory;
-import ro.ase.cts.seminar5.singleton.Cart;
+import ro.ase.cts.Singleton.Cart;
+import ro.ase.cts.seminar6.Builder.AbstractProductFactory;
+import ro.ase.cts.seminar6.Builder.Product;
+import ro.ase.cts.seminar6.Builder.TechProductFactory;
+
 
 public class Main {
 
