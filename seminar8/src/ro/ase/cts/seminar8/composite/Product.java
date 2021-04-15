@@ -38,7 +38,7 @@ public class Product extends CatalogComponent{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return this.name+" with price tag: "+this.price+"$";
+		return this.name+" with price tag: "+this.price+"\n";
 	}
 	
 	
