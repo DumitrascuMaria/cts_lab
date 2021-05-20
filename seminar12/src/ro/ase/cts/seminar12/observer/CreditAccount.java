@@ -1,13 +1,10 @@
-package ro.ase.ctsseminar2;
+package ro.ase.cts.seminar12.observer;
 
-import ro.ase.ctsseminar2.exceptii.IllegalTransferException;
-import ro.ase.ctsseminar2.exceptii.InsufficientFundsException;
-import ro.ase.ctsseminar2.interfaces.Depositable;
-import ro.ase.ctsseminar2.interfaces.Transferable;
-import ro.ase.ctsseminar2.interfaces.Withdrawable;
+
 
 public class CreditAccount extends BankAccount implements Depositable,Withdrawable{
 
+	//entitate Observabil concret
 	@Override
 	public void deposit(double amount) {
 		// TODO Auto-generated method stub
@@ -23,11 +20,11 @@ public class CreditAccount extends BankAccount implements Depositable,Withdrawab
 		if(amount>0) {
 			this.balance-=amount;
 			}
+		for(NotificationInterface observer: this.observers) {
+			observer.notifyUser(amount);
+		}
 			
 		
-	}
-	public CreditAccount(double balance, String iban) {
-		super(balance,iban);
 	}
 
 //	@Override
